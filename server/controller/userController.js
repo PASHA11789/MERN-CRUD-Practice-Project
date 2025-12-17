@@ -10,8 +10,8 @@ export const create = async (req, res) => {
     if (userExist) {
       return res.status(400).json({ message: "User already exists." });
     }
-    const saveData = await newUser.save();
-    res.status(200).json(saveData);
+    const savedData = await newUser.save();
+    res.status(200).json({message:"User Created succesfully"});
   } catch (error) {
     res.status(500).json({ errorMessage: error.message });
   }
