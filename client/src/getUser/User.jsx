@@ -85,9 +85,12 @@ function User() {
                   <td className="py-4 px-6">{user.address}</td>
                   <td className="py-4 px-6 text-center space-x-2">
                     {/* Update Button */}
-                    <button className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-md text-sm transition shadow-sm">
+                    <Link
+                      to={`/update/` + user._id}
+                      className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-md text-sm transition shadow-sm"
+                    >
                       Update
-                    </button>
+                    </Link>
 
                     {/* Delete Button */}
                     <button className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md text-sm transition shadow-sm">
