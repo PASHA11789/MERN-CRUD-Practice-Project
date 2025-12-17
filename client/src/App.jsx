@@ -1,7 +1,7 @@
 import "./App.css";
 import User from "./getUser/user";
 import AddUser from "./addUser/AddUser";
-
+import { Toaster } from "react-hot-toast"; // Import this
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 function App() {
   const route = createBrowserRouter([
@@ -16,6 +16,7 @@ function App() {
   ]);
   return (
     <div>
+      <Toaster />
       <RouterProvider router={route}></RouterProvider>
     </div>
   );
