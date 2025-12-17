@@ -1,6 +1,8 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
 // You likely don't need "./User.css" anymore if you use Tailwind
 // import "./User.css";
 
@@ -22,9 +24,14 @@ function User() {
     <div className="flex justify-center mt-10 px-4">
       {/* Container for the table with shadow and rounded corners */}
       <div className="w-full max-w-5xl overflow-hidden rounded-lg shadow-lg border border-gray-200">
-        <button className="bg-blue-500 rounded-lg text-white cursor-pointer transform transition-all transfom-de hover:bg-blue-400 p-2 m-2">
-          Add User
-        </button>
+        <div className="h-14 p-auto content-center">
+          <Link
+            to="/add"
+            className="bg-blue-500 rounded-lg h-6 text-white cursor-pointer transform transition-all transfom-de hover:bg-blue-400 p-2 m-2"
+          >
+            Add User
+          </Link>
+        </div>
 
         <table className="w-full text-left border-collapse bg-white">
           {/* Table Header */}
@@ -67,11 +74,15 @@ function User() {
           <tbody className="text-gray-700">
             {users.map((user, index) => {
               return (
-                <tr className="border-b border-gray-200 hover:bg-gray-50 transition duration-150">
+                // FIX: Add the key here!
+                <tr
+                  key={user._id}
+                  className="border-b border-gray-200 hover:bg-gray-50 transition duration-150"
+                >
                   <td className="py-4 px-6 font-medium">{index + 1}</td>
                   <td className="py-4 px-6">{user.name}</td>
                   <td className="py-4 px-6">{user.email}</td>
-                  <td className="py-4 px-6">{user.email}</td>
+                  <td className="py-4 px-6">{user.address}</td>
                   <td className="py-4 px-6 text-center space-x-2">
                     {/* Update Button */}
                     <button className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-md text-sm transition shadow-sm">
